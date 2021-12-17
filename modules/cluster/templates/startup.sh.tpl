@@ -120,6 +120,7 @@ KillSignal=SIGINT
 Restart=on-failure
 RestartSec=5
 TimeoutStopSec=30
+LimitNOFILE=1048576
 
 [Install]
 WantedBy=multi-user.target

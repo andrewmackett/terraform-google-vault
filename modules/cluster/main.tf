@@ -76,7 +76,8 @@ resource "google_compute_instance_template" "vault" {
     var.vault_instance_metadata,
     {
       "google-compute-enable-virtio-rng" = "true"
-      "startup-script"                   = data.template_file.vault-startup-script.rendered
+      "startup-script"                   = templatefile("${path.module}/templates/startup.sh.tpl", local.vault_startup_script_vars)
+      # data.template_file.vault-startup-script.rendered
     },
   )
 

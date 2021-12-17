@@ -22,10 +22,16 @@ seal "gcpckms" {
 }
 
 # Enable HA backend storage with GCS
-storage "gcs" {
-  bucket     = "${storage_bucket}"
-  ha_enabled = "true"
-}
+#storage "gcs" {
+#  bucket     = "${storage_bucket}"
+#  ha_enabled = "true"
+#}
+#storage "postgresql" {
+#  connection_url = "postgresql://sandbox:cd3a3113b481480f@10.1.0.2:5432/vaultgce",
+#  ha_enabled     = "false"
+#  max_parallel   = "512"
+#}
+storage "inmem" {}
 
 # Create local non-TLS listener
 listener "tcp" {
